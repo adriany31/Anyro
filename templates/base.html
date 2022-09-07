@@ -21,7 +21,11 @@
     {% include 'includes/encabezado.html' %}
 
     {% include 'includes/nav.html' %}
-
+    {%if alarma %}
+    <div class="alert alarma">
+        <p> {{alarma}} </p>
+    </div>
+    {% endif %}
     {% block content %}
 
     {% endblock %}
