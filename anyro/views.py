@@ -8,6 +8,3 @@ def home(request):
 
 def contactenos(request):
     return render(request, 'contactenos.html');
-
-def registro(request):
-    return render(request, 'registro.html');

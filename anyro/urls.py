@@ -22,6 +22,6 @@ urlpatterns = [
     path('', views.bienvenido, name="bienvenido"),
     path('home/', views.home, name="home"),
     path('contactenos/', views.contactenos, name="contactenos"),
-    path('registro/', views.registro, name="registro"),
-    path('accounts/', include('accounts.url')),
+    
+    path('accounts/', include('accounts.urls')),
 ]

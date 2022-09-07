@@ -10,8 +10,8 @@ def registro(request):
     if request.method == 'POST':
         password = request.POST['password']
         confirmPassword = request.POST['confirmPassword']
-        nombreUsuario = request.POST['username']
-        email = request.POST['correo']
+        username = request.POST['username']
+        email = request.POST['email']
     
         #Validacion campos
         ok = True
@@ -27,9 +27,9 @@ def registro(request):
          
         #Todo ok
         if ok:
-            existe = Account.object.filter(email=email).exists()
+            existe = Account.objects.filter(email=email).exists()
             if not existe:
-                user = Account.objects.create_user(first_name=nombreUsuario, last_name=nombreUsuario, username=nombreUsuario, email=email, password=password)
+                user = Account.objects.create_user(first_name=username, last_name=username, username=username, email=email, password=password)
                 user.save()
                 context['alarma'] = 'Usuario guardado con exito!'
             else:
