@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilos.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/normalize.css'%}">
+    <script src="{% static 'js/jquery.js'%}"></script>
+    <script src="{% static 'js/mover.js'%}"></script>
+    <title>ANYRO</title>
+
+</head>
+
+<body>
+
+
+    {% include 'includes/encabezado.html' %}
+
+    {% include 'includes/nav.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+    
+    {% include 'includes/footer.html' %}
+    
+</body>
+
+</html>

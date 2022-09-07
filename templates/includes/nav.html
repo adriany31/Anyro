@@ -1,0 +1,20 @@
+{% load static %}
+<header>
+    <div class="contenedor">
+        <div class="marca">
+            <img class="cabeceraimg" src="{%static 'img/Shoe Reps.png' %}">
+            <h1><span class="resultado">ANYRO</span></h1>
+            <nav>
+                <ul>
+                    <li class="actual"><a href="{% url 'bienvenido' %}">Inicio</a></li>
+                    <li class="actual"><a href="servicios.html">Servicios</a></li>
+                    <li class="actual"><a href="{% url 'home' %}">Tienda</a></li>
+                    <li class="actual"><a href="{% url 'contactenos' %}">Contactenos</a></li>
+                    <li class="actual"><a href="{% url 'registro' %}">Registrarse</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</header>
