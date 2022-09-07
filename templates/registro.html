@@ -10,7 +10,8 @@
     <div class="contenedor">
        
             <h1></h1>
-            <form action="#" target="" method="get" name="formDatosPersonales">
+            <form action="{% url 'registro' %}" method="post">
+                {% csrf_token %}
                 <label for="nombre">Nombres</label>
                 <input type="text" name="Nombres" id="nombre" placeholder="Escribe tus nombres"/>
             
