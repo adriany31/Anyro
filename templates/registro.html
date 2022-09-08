@@ -10,7 +10,7 @@
     <div class="contenedor">
        
             <h1></h1>
-            <form action="{% url 'registro' %}" method="post">
+            <form action="{% url 'registro' %}" method="POST">
                 {% csrf_token %}
                 <label for="nombre">Nombres</label>
                 <input type="text" name="username" id="nombre" placeholder="Escribe tus nombres"/>
@@ -27,6 +27,7 @@
                 
                 <input type="submit" name="Registrarse" value="Registrarse"/>
             </form>
+            
     </div>
 </section>
 {% endblock %}
