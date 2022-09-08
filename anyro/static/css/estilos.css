@@ -226,7 +226,7 @@ input,textarea{
 }
 textarea{
     height: 120px;
-}*/
+} */
 .mapa{
     float: right;
     margin-top: 15px;
@@ -271,6 +271,16 @@ footer{
     }
 
 }
+/* .header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+} */
 /* .alarma{
     background-color: red;
 }

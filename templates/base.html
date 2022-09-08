@@ -22,14 +22,20 @@
 
         {% include 'includes/nav.html' %}
         {%if alarma %}
-            <div class="alert alarma">
+        <div class="alert alert-danger" role="alert">
+            <p> {{alarma}} </p>
+          </div>
+            <!-- <div class="alert alarma">
                 <p> {{alarma}} </p>
-            </div>
+            </div> -->
         {% endif %}
         {%if mensaje %}
-            <div class="alert mensaje">
+        <div class="alert alert-danger" role="alert">
+            <p> {{mensaje}} </p>
+          </div>
+            <!-- <div class="alert mensaje">
                 <p> {{mensaje}} </p>
-            </div>
+            </div> -->
         {% endif %}
         <main>
             {% block content %}
