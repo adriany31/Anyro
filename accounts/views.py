@@ -19,7 +19,7 @@ def registro(request):
          context['alarma'] = 'Ingrese el correo electronico'
          ok = False
         if not password or len(password) < 5:
-         context['alarma'] = 'Ingrese un password de cinco (5) o mas caracteres'
+         context['alarma'] = 'Ingrese un password de cinco (5) o más caracteres'
          ok = False  
         if password != confirmPassword:
          context['alarma'] = '¡El password no coincide!'
