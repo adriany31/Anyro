@@ -46,7 +46,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return render(request, 'home.html')
+            return render(request, 'bienvenido.html')
         else:
             return render(request, 'login.html', {'alarma': 'Correo o password no valido!'})
         
