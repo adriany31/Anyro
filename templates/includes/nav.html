@@ -1,20 +1,26 @@
 {% load static %}
 <header>
-    <div class="contenedor">
-        <div class="marca">
-            <img class="cabeceraimg" src="{%static 'img/Shoe Reps.png' %}">
-            <h1><span class="resultado">ANYRO</span></h1>
-            <nav>
-                <ul>
-                    <li class="actual"><a href="{% url 'bienvenido' %}">Inicio</a></li>
-                    <li class="actual"><a href="{% url 'home' %}">Tienda</a></li>
-                    <li class="actual"><a href="{% url 'contactenos' %}">Contactenos</a></li>
-                    <li class="actual"><a href="{% url 'registro' %}">Registrarse</a></li>
-                    <li class="actual"><a href="{% url 'login' %}">Ingresar</a></li>
-                    
-                </ul>
+    <div class="container-fluid">
+        <div class="bg-light">
+            <nav class="navbar navbar-expand-md navbar-light bg-light border-3-bottom border-primary">
+                <div class="container-fluid">
+                    <a href="#" class="navbar-brand">ANYRO</a>
+                    <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#MenuNavegacion">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div id="MenuNavegacion" class="navbar-collapse collapse show">
+                    <ul class="navbar-nav ms-3">
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'bienvenido'%}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'home'%}">Tienda</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#">Contactanos</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'registro'%}">Registro</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'login'%}">Ingresar</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'logout'%}">Salir</a></li>
+                    </ul>
+                </div>
             </nav>
         </div>
-
     </div>
 </header>
