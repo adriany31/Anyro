@@ -3,13 +3,11 @@
 
     <div class="col-9" id="titulo">
     </div>
-    <div class="col-3">
-        <img class="d-block mx auto" alt="">
-    </div>
 </div>
 <div class="col-12" id="nombreUsuario">
-    {% if user.id is None %}
-    <h6>Visitante</h6>
+    {% if user.username is None %}
+    <h4>Visitante</h4>
     {% else %}
-    <h6>{{user.username}}</h6>
+    <h4>{{user.first_name}} {{user.last_name}}</h4>
+    {% endif %}
 </div>

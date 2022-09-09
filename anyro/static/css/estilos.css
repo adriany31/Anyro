@@ -271,6 +271,9 @@ footer{
     }
 
 }
+#nombreUsuario{
+    text-align: right;
+}
 /* .header {
     color: #36A0FF;
     font-size: 27px;
