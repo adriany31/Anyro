@@ -1,0 +1,15 @@
+{% load static%}
+<div class="row" id="encabezado">
+
+    <div class="col-9" id="titulo">
+    </div>
+    <div class="col-3">
+        <img class="d-block mx auto" alt="">
+    </div>
+</div>
+<div class="col-12" id="nombreUsuario">
+    {% if user.id is None %}
+    <h6>Visitante</h6>
+    {% else %}
+    <h6>{{user.username}}</h6>
+</div>
