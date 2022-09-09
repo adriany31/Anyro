@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from accounts.models import Account
+from django.contrib import auth
 
 # Create your views here.
 
@@ -37,3 +38,17 @@ def registro(request):
                 
     return render(request, 'registro.html', context);
 
+def login(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        user = auth.authenticate(email = email, password = password)
+
+        if user is not None:
+            auth.login(request, user)
+            return render(request, 'home.html')
+        else:
+            return render(request, 'login.html', {'alarma': 'Correo o password no valido!'})
+        
+    else: 
+        return render(request, 'login.html')
