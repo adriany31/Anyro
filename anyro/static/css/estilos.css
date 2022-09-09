@@ -142,7 +142,7 @@ nav a:hover{
 #boletin{
     padding: 15px;
     color: #fff;
-    background: #B8FFF9;
+    background: black;
 }
 #boletin h1{
     float: center;
@@ -264,7 +264,7 @@ form input[type="submit"]:hover{
     line-height: 45px;
     color: #fff;
     margin-right: 10px;
-    background-color: #85F4FF;
+    background-color:#85F4FF;
     text-align: center;
     transition: all 300ms ease;
 }
