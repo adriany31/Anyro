@@ -1,34 +1,84 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section id="boletin">
-    <div class="contenedor">
-        <h1>Registrarse</h1>
-    </div>
-</section>
-<section id="principal">
-    
-    <div class="contenedor">
-       
-            <h1></h1>
-            <form action="{% url 'registro' %}" method="POST">
-                {% csrf_token %}
-                <label for="nombre">Nombres</label>
-                <input type="text" name="username" id="nombre" placeholder="Escribe tus nombres"/>
-            
-                <label for="email" >Email</label>
-                <input type="email" name="email" id="email" placeholder="Email" required />
+<main>
+    <div class="container w-75 bg-primary mt-5 rounded shadow">
+        <div class="row align-items-stretch ">
+            <div class="col bg-white p-4 rounded-end">
+                <div class="text-end">
+                    <img src="{% static 'img/ANYRO.png'%}" width="48" alt="">
+                </div>
+                <h2 class="fw-bold text-center py-5">Registrate</h2>
 
-                <label for="asunto">Contraseña</label>
-                <input type ="password" name="password" id="password" placeholder="Contraseña"/>
-            
-                <label for="asunto">Confirmar contraseña</label>
-                <input type ="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmar contraseña"/>
-            
-                
-                <input type="submit" name="Registrarse" value="Registrarse"/>
-            </form>
+                <!-- login -->
 
+                <form action="{% url 'registro' %}" method="POST">
+                    <div class="mb-4">
+                        <label for="nombre" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" name="username" id="nombre" placeholder="Escribe tus nombres"/>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="form-label" >Email</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required />
+                    </div>
+                    <div class="mb-4">
+                        <label for="asunto" class="form-label">Contraseña</label>
+                        <input type ="password" class="form-control" name="password" id="password" placeholder="Contraseña"/>
+
+                    </div>
+                    <div class="mb-4">
+                        <label for="confirmpassword" class="form-label">Confirmar contraseña</label>
+                        <input type="password" class="form-control" name="confirmpassword" placeholder="Confirmar contraseña"/>
+                    </div>
+                    <div class="mb-4">
+                        <input type="checkbox" name="connected" class="form-check-input">
+                        <label for="connected" class="form-check-label">Acepto <b>Términos y Condiciones</b>.</label>
+                    </div>
+                    <div class="d-grid">
+                        <input type="submit" class="btn btn-primary" name="Registrarse" value="Registrarse"/>
+                    </div>
+                    <div class="my3">
+                        <span>Ya tienes cuentas?<a href="{% url 'login'%}">Inicia Sesion</a></span>
+                       
+                    </div>
+                </form>
+                <!-- Login redes -->
+                <div class="container w-100 my-5">
+                    <div class="row text-center">
+                        <div class="col-12">Registrate con</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-outline-primary w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <img src="{% static 'img/logos/Facebook.webp'%}" width="32" alt="">
+                                    </div>
+                                    <div class="col-12 col-md-10 text-center">
+                                        Facebook
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-danger w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <img src="{% static 'img/logos/Google.png'%}" width="32" alt="">
+                                    </div>
+                                    <div class="col-12 col-md-10 text-center">
+                                        Google
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
+</main>
+<br>
+
 {% endblock %}
+

@@ -1,65 +1,79 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<section id="boletin">
-    <div class="contenedor">
-        <h1>Registrarse</h1>
-    </div>
-</section>
-<section id="principal">
-    
-    <div class="contenedor">
-       
-            <h1></h1>
-            <form enctype="multipart/form-data" action="{% url 'login' %}" method="post">
-                {% csrf_token %}
-                <label for="correo" class="form-label">correo:</label>
-                <input type="email" class="form-control" name="email" id="correo">
-            
-                <label for="password" class="form-label">password:</label>
-                <input type="password" class="form-control" name="password" id="password">
+<main>
+    <div class="container w-75 bg-primary mt-5 rounded shadow">
+        <div class="row align-items-stretch ">
+            <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded" id="bg" >
 
-                
-                <div class="row">
-                    <div class="mb-3 col-sm-6">
-                        <a class="form-control btn btn-secondary" href="{% url 'registro' %}">¿No te has registrado?</a>
+            </div>
+            <div class="col bg-white p-4 rounded-end">
+                <div class="text-end">
+                    <img src="{% static 'img/ANYRO.png'%}" width="48" alt="">
+                </div> 
+                <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+
+                <!-- login -->
+
+                <form enctype="multipart/form-data" action="{% url 'login' %}" method="post">
+                    <div class="mb-4">
+                        <label for="correo" class="form-label">Correo electronico</label>
+                        <input type="email" class="form-control" name="correo">
                     </div>
-                    <div class="mb-3 col-sm-6">
+                    <div class="mb-4">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="mb-4">
+                        <input type="checkbox" name="connected" class="form-check-input">
+                        <label for="connected" class="form-check-label">Mantener conectado</label>
+                    </div>
+                    <div class="d-grid">
                         <input type="submit" value="Ingresar" class="form-control btn btn-warning">
                     </div>
+                    <div class="my3">
+                        <span>No tienes cuentas? <a href="{% url 'registro' %}">Registrate</a></span>
+                        <span><a href="#">Recuperar contraseña</a></span>
+                    </div>
+                </form>
+                <!-- Login redes -->
+                <div class="container w-100 my-5"> 
+                    <div class="row text-center">
+                        <div class="col-12">Iniciar sesion</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-outline-primary w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <img src="{% static 'img/logos/Facebook.webp'%}" width="32" alt="">
+                                    </div>
+                                    <div class="col-12 col-md-10 text-center">
+                                        Facebook
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-outline-danger w-100 my-1">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <img src="{% static 'img/logos/Google.png'%}" width="32" alt="">
+                                    </div>
+                                    <div class="col-12 col-md-10 text-center">
+                                        Google
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </form>
-
+            </div>
+        </div>
     </div>
-</section>
+</main>
+<br>
 
-
-
-<!-- <br>
-<div class="mb-3 descripcion">
-    <h4>Ingreso</h4>
-</div>
-<div class="mb-3">
-    <form enctype="multipart/form-data" action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="mb-3 col-sm-6">
-                <label for="correo" class="form-label">correo:</label>
-                <input type="email" class="form-control" name="email" id="correo">
-            </div>
-            <div class="mb-3 col-sm-6">
-                <label for="password" class="form-label">password:</label>
-                <input type="password" class="form-control" name="password" id="password">
-            </div>
-        </div>
-        <div class="row">
-            <div class="mb-3 col-sm-6">
-                <a class="form-control btn btn-secondary" href="{% url 'registro' %}">¿No te has registrado?</a>
-            </div>
-            <div class="mb-3 col-sm-6">
-                <input type="submit" value="Ingresar" class="form-control btn btn-warning">
-            </div>
-        </div>
-    </form>
-</div> -->
 {% endblock %}
+
