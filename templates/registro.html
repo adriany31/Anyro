@@ -13,6 +13,7 @@
                 <!-- login -->
 
                 <form action="{% url 'registro' %}" method="POST">
+                    {% csrf_token %}
                     <div class="mb-4">
                         <label for="nombre" class="form-label">Nombres</label>
                         <input type="text" class="form-control" name="username" id="nombre" placeholder="Escribe tus nombres"/>
