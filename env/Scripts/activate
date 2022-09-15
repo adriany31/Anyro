@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\SENA\Documents\GitHub\anyro\env"
+VIRTUAL_ENV="C:\Users\Administrator\OneDrive\Documentos\GitHub\anyro\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
