@@ -1,3 +1,4 @@
+from ast import Not
 from mailbox import NoSuchMailboxError
 from turtle import update
 from django.db import models
@@ -6,11 +7,11 @@ from django.db import models
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=100, null=False)
-    descripcion = models.CharField(max_length=300, null=True)
+    descripcion = models.CharField(max_length=300)
     precio = models.DecimalField(max_digits=8, decimal_places=2)
     unidad = models.CharField(max_length=10, null=False)
     imagen = models.ImageField(upload_to='productos')
-    icono = models.ImageField(upload_to='iconos')
+    # icono = models.ImageField(upload_to='iconos', null=True)
 
     def __str__(self):
         return self.nombre
