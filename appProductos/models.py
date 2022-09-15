@@ -9,8 +9,8 @@ class Producto(models.Model):
     descripcion = models.CharField(max_length=300, null=True)
     precio = models.DecimalField(max_digits=8, decimal_places=2)
     unidad = models.CharField(max_length=10, null=False)
-    imgane = models.ImageField(update_to='productos')
-    icono = models.ImageField(update_to='iconos')
+    imagen = models.ImageField(upload_to='productos')
+    icono = models.ImageField(upload_to='iconos')
 
     def __str__(self):
         return self.nombre
