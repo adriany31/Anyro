@@ -8,148 +8,21 @@
             {% for prod in productos %}
             <div class="col">
                 <div class="card shadow-sm">
-                    <img src="{{ producto.imagen.url }}" alt="">
+                    <img src="{{ prod.imagen.url }}" alt="">
                     <div class="card-body">
-                        <h5>{{ producuto.nombre }}</h5>
-                        <p class="card-text">${{producto.precio}}</p>
+                        <h5>{{ prod.nombre }}</h5>
+                        <p class="card-text">${{prod.precio}}</p>
                         <div class="d-flex justify-content-between align-items-center">
 
                             <div class="btn-group">
                                 <a href="" class="btn btn-primary">Detalles</a>
                             </div>
-                            <a href="" class="btn btn primay">Agregar</a>
+                            <a href="{% url 'carrito' prod.id %}" class="btn btn primay">Agregar</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{% static 'img/jordan.webp'%}" alt="">
-                    <div class="card-body">
-                        <h5>Jordan 4</h5>
-                        <p class="card-text">$476.000</p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div class="btn-group">
-                                <a href="" class="btn btn-primary">Detalles</a>
-                            </div>
-                            <a href="" class="btn btn primay">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{% static 'img/yeezy.webp'%}" alt="">
-                    <div class="card-body">
-                        <h5>Adidas Yeezy</h5>
-                        <p class="card-text">$390.000</p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div class="btn-group">
-                                <a href="" class="btn btn-primary">Detalles</a>
-                            </div>
-                            <a href="" class="btn btn primay">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{% static 'img/badbunny.webp'%}" alt="">
-                    <div class="card-body">
-                        <h5>Adidas Forum Low The First Cafe X Bad Bunny</h5>
-                        <p class="card-text">$520.000</p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div class="btn-group">
-                                <a href="" class="btn btn-primary">Detalles</a>
-                            </div>
-                            <a href="" class="btn btn primay">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{% static 'img/nike.webp'%}" alt="">
-                    <div class="card-body">
-                        <h5>Nike Air Force 1</h5>
-                        <p class="card-text">$368.000</p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div class="btn-group">
-                                <a href="" class="btn btn-primary">Detalles</a>
-                            </div>
-                            <a href="" class="btn btn primay">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{% static 'img/nikelow.webp'%}" alt="">
-                    <div class="card-body">
-                        <h5>Air Jordan 1</h5>
-                        <p class="card-text">$321.000</p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div class="btn-group">
-                                <a href="" class="btn btn-primary">Detalles</a>
-                            </div>
-                            <a href="" class="btn btn primay">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{% static 'img/jordanretro.webp'%}" alt="">
-                    <div class="card-body">
-                        <h5>Jordan Retro 1 Off White</h5>
-                        <p class="card-text">$600.000</p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div class="btn-group">
-                                <a href="" class="btn btn-primary">Detalles</a>
-                            </div>
-                            <a href="" class="btn btn primay">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{% static 'img/travis.jpg'%}" alt="">
-                    <div class="card-body">
-                        <h5>Nike AF1 X Travis Scott</h5>
-                        <p class="card-text">$520.000</p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div class="btn-group">
-                                <a href="" class="btn btn-primary">Detalles</a>
-                            </div>
-                            <a href="" class="btn btn primay">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card shadow-sm">
-                    <img src="{% static 'img/nikefuture.webp'%}" alt="">
-                    <div class="card-body">
-                        <h5>Nike Mag Back To The Future (2016)</h5>
-                        <p class="card-text">$1.500.000</p>
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div class="btn-group">
-                                <a href="" class="btn btn-primary">Detalles</a>
-                            </div>
-                            <a href="" class="btn btn primay">Agregar</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+            {% endfor %}
         </div>
     </div>
 </main>
