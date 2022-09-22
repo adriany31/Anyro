@@ -14,8 +14,4 @@ def home(request):
 def contactenos(request):
     return render(request, 'contactenos.html');
 
-def carrito(request):
-    context={
-        'productos': Producto.objects.all()
-    }
-    return render(request, 'carrito.html', context);
+
