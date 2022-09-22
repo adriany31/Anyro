@@ -29,8 +29,8 @@
                         <td>{{ prod.nombre }}/{{ prod.unidad }}</td>
                         <td>{{ prod.total }}</td>
                         <td>
-                            <a href="#" class="btn btn-danger btn-carrito">Eliminar</a>
-                            <a href="#" class="btn btn-danger btn-carrito">Detalle</a>
+                            <a href="{% url 'eliminar' prod.id %}" class="btn btn-danger btn-carrito">Eliminar</a>
+                            <a href="{% url 'producto' prod.id %}" class="btn btn-danger btn-carrito">Detalle</a>
                         </td>
                     </tr>
                     {% endfor %}
