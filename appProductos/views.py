@@ -80,3 +80,12 @@ def verCarrito(request):
     print(context)
 
     return render(request, 'carrito.html', context)
+
+def eliminarItemCarrito(request, id):
+    #Consultar el reg
+    regCarrito = Carrito.objects.get(id=id)
+    regCarrito.estado = 'cancelado'
+    #Guardar en BD
+    regCarrito.save()
+    #Desplegar el carrito
+    return verCarrito(request)
