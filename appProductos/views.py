@@ -26,9 +26,9 @@ def agregar (request, id= NULL):
     id = int(id)
     user = request.user
     regProducto = Producto.objects.get(id=id)
-    existe= Carrito.objects.filter(producto = regProducto, estado ='carrito').exists()
+    existe= Carrito.objects.filter(cliente=user, producto = regProducto, estado ='carrito').exists()
     if existe:
-        regCarrito = Carrito.objects.get(producto = regProducto, estado ='carrito')
+        regCarrito = Carrito.objects.get(cliente = user, producto = regProducto, estado ='carrito')
         regCarrito.cantidad += 1
         regCarrito.save()
     else:
