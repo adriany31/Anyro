@@ -16,16 +16,39 @@
                         <li class="nav-item"><a class="nav-link active" href="{% url 'home'%}">Tienda</a></li>
                         <li class="nav-item"><a class="nav-link active" href="#">Contactanos</a></li>
                         {% if user.id is None %}
-                        <li class="nav-item"><a class="nav-link active" href="{% url 'login'%}"><img src="https://img.icons8.com/ios/26/000000/user--v1.png"/></a></li>
-                        <li class="nav-item"><a class="nav-link active" href="{% url 'registro'%}"><img src="https://img.icons8.com/ios/26/000000/add-user-male.png"/></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'login'%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                         </svg></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'registro'%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                            <path d="M16 11h6m-3 -3v6"></path>
+                         </svg></a></li>
 
                         {% else %}
                         {% endif %}
                         {% if user.id is None %}
                         {% else %}
                      
-                        <li class="nav-item"><a class="nav-link active" href="{% url 'logout'%}"><img src="https://img.icons8.com/small/25/000000/export.png"/></a></li>
-                        <li class="nav-item"><a class="nav-link active" href="{% url 'carrito'%}"><img src="https://img.icons8.com/ios/25/000000/add-shopping-cart--v1.png"/></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'logout'%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                            <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+                         </svg></a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'carrito'%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="6" cy="19" r="2"></circle>
+                            <circle cx="17" cy="19" r="2"></circle>
+                            <path d="M17 17h-11v-14h-2"></path>
+                            <path d="M6 5l14 1l-1 7h-13"></path>
+                         </svg></a></li>
                         {% endif %}
                         
                     </ul>
