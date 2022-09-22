@@ -20,7 +20,7 @@ def verProductos(request, id=NULL):
         context ={
             'producto': regProducto,
         }
-        return render(request, 'home.html', context)
+        return render(request, 'unProducto.html', context)
 
 def agregar (request, id= NULL):
     id = int(id)
