@@ -1,3 +1,5 @@
+
+import json
 from multiprocessing import context
 from django.shortcuts import render
 
@@ -5,6 +7,8 @@ from django.shortcuts import render
 from asyncio.windows_events import NULL
 from django.shortcuts import render
 from .models import Producto, Carrito
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 def verProductos(request, id=NULL):
@@ -24,22 +28,31 @@ def verProductos(request, id=NULL):
 
 def agregar (request, id= NULL):
     id = int(id)
-    user = request.user
-    regProducto = Producto.objects.get(id=id)
-    existe= Carrito.objects.filter(cliente=user, producto = regProducto, estado ='carrito').exists()
-    if existe:
-        regCarrito = Carrito.objects.get(cliente = user, producto = regProducto, estado ='carrito')
-        regCarrito.cantidad += 1
-        regCarrito.save()
-    else:
-        regCarrito = Carrito(cliente = user, producto =regProducto, precio =regProducto.precio)
-        regCarrito.save()   
+    context= NULL
 
-    listaProductos = Producto.objects.all()
-    context = {
-            'productos': listaProductos,
-        }
+    if request.user.is_authenticated:
+        user = request.user
+        regProducto = Producto.objects.get(id=id)
+        existe= Carrito.objects.filter(cliente=user, producto = regProducto, estado ='carrito').exists()
+        if existe:
+            regCarrito = Carrito.objects.get(cliente = user, producto = regProducto, estado ='carrito')
+            regCarrito.cantidad += 1
+            regCarrito.save()
+        else:
+            regCarrito = Carrito(cliente = user, producto =regProducto, precio =regProducto.precio)
+            regCarrito.save()   
+
+        listaProductos = Producto.objects.all()
+        context = {
+                'productos': listaProductos,
+            }
+    else:
+        context = {
+                'alarma': 'Por favor registrarse',
+            }        
+    
     return render(request, 'home.html', context)
+    
 
 def verCarrito(request):
 
@@ -60,6 +73,7 @@ def verCarrito(request):
             'valor':prod.producto.precio,
             'unidad':prod.producto.unidad,
             'total':int(prod.cantidad) * int(prod.producto.precio),
+            'prodId':prod.producto.id,
             'id':prod.id
         }
 
@@ -89,3 +103,31 @@ def eliminarItemCarrito(request, id):
     regCarrito.save()
     #Desplegar el carrito
     return verCarrito(request)
+
+def cambiarCantidad(request):
+    is_ajax = request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+    if is_ajax:
+        if request.method == 'POST':
+            #toma la data enviada por el cliente
+            data= json.load(request)
+            id = data.get('id')
+            cantidad = int(data.get('cantidad'))
+            subtotal = 0
+            if cantidad > 0:
+                #lee el registro y lo modifica
+                regProducto = Carrito.objects.get(id=id)
+                regProducto.cantidad = cantidad
+                regProducto.save()
+                subtotal = str(cantidad * regProducto.producto.precio)
+            
+            context={
+                'mensaje': 'Cantidad modificada a ' +str(cantidad),
+                'subtotal': subtotal,
+                'id': id,
+            } 
+            return JsonResponse(context)
+        
+        return JsonResponse({'alerta': 'No se pudo modificar... '}, status=400)
+    else:
+        return verCarrito(request)
+    

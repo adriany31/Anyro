@@ -24,13 +24,13 @@
                 <tbody>
                     {% for prod in carrito %}
                     <tr>
-                        <th><input type="number" name="cantidad" id="" value="{{ prod.cantidad }}" min="0" style="width: 80px;"></th>
+                        <th><input type="number" name="cantidad" id="cantidad_{{prod.id}}" onchange="cambiarCantidad({{prod.id}})" value="{{ prod.cantidad }}" min="1" style="width: 80px;"></th>
                         <td><img src="{{ prod.icono.url }}" alt="x"></td>
                         <td>{{ prod.nombre }}/{{ prod.unidad }}</td>
-                        <td>{{ prod.total }}</td>
+                        <td id="subtotal_{{prod.id}}">{{ prod.total }}</td>
                         <td>
                             <a href="{% url 'eliminar' prod.id %}" class="btn btn-danger btn-carrito">Eliminar</a>
-                            <a href="{% url 'producto' prod.id %}" class="btn btn-primary">Detalles</a>
+                            <a href="{% url 'producto' prod.prodId %}" class="btn btn-primary">Detalles</a>
                         </td>
                     </tr>
                     {% endfor %}
