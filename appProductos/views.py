@@ -47,9 +47,10 @@ def agregar (request, id= NULL):
                 'productos': listaProductos,
             }
     else:
-        context = {
-                'alarma': 'Por favor registrarse',
-            }        
+        context={
+            'alarma' : '¡Por favor iniciar sesion!',
+
+        }     
     
     return render(request, 'home.html', context)
     
