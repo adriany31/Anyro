@@ -1,8 +1,25 @@
+from cmath import acos
+from contextlib import ContextDecorator
+from email.message import Message
+from email.policy import default
 from django.shortcuts import render, redirect
 from accounts.models import Account
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
+from django.shortcuts import redirect, render
+from .models import Account
+from email.message import EmailMessage
 
+from accounts.models import Account
+from accounts.models import MyAccountManager
+
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
+from django.core.mail import EmailMessage, send_mail
 # Create your views here.
 
 
@@ -35,8 +52,31 @@ def registro(request):
                 context['alarma'] = 'Usuario guardado con exito!'
             else:
                 context['alarma'] = '¡El correo ya existe!'
+        
+            current_site = get_current_site(request)
+            mail_subject = 'Por favor activar tu cuenra en el sistema de ANYRO'
+
+            body = render_to_string('accounts/account_verification_email.html',{
+
+                'user' : user,
+                'domain' : current_site,
+                'uid' : str(urlsafe_base64_encode(force_bytes(user.pk))),
+                'token' : default_token_generator.make_token(user),
+            })
+            to_email = email
+            send_email = EmailMessage(mail_subject,body,to=[to_email])
+            send_email.send()
+
+            context = {
+                'mensaje' : 'Bienvenido' + first_name + '. Favor activar su cuenta en el enlace enviado a su correo.'
+            }
+
+            return redirect('login')
                 
-    return render(request, 'registro.html', context);
+        
+                
+    return render(request, 'registro.html', context)
+    
 
 def login(request):
     if request.method == 'POST':
@@ -57,3 +97,17 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+def activate(request, uidb64,token):
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = Account._default_manager.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        return redirect('login')
+    else:
+        return redirect('registro')
