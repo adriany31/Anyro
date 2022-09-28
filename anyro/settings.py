@@ -123,6 +123,11 @@ STATIC_ROOT = BASE_DIR /'static'
 STATICFILES_DIRS = [
 	'anyro/static'
 ]
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'anyroshoes@gmail.com'
+EMAIL_HOST_PASSWORD = 'dtslphilzjzaxruj'
+EMAIL_USE_TLS = True
 
 MEDIA_URL = '/media/' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # alternativo: MEDIA_ROOT = BASE_DIR /'media'

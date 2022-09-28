@@ -52,7 +52,7 @@ def agregar (request, id= NULL):
 
         }     
     
-    return render(request, 'home.html', context)
+    return render(request, 'bienvenido.html', context)
     
 
 def verCarrito(request):
